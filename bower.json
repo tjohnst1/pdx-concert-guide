@@ -1,0 +1,28 @@
+{
+  "name": "pdx-concert-listings",
+  "description": "A React app that displays concert listings for the Portland, OR metro area.",
+  "main": "app/src/js/App.js",
+  "authors": [
+    "Travis Johnston"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "react",
+    "flux",
+    "apis",
+    "pdx",
+    "concerts"
+  ],
+  "homepage": "https://github.com/tjohnst1/pdx-concert-guide",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
