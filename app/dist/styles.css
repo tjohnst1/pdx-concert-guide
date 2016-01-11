@@ -8791,3 +8791,7 @@ button.close {
     display: none !important;
   }
 }
+/* line 1, ../src/scss/_nav.scss */
+.nav-link {
+  display: inline-block;
+}

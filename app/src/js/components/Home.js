@@ -1,7 +1,10 @@
 import React from 'react';
+import NavBar from './NavBar';
 
 export default (props) => {
   return (
-    <h1>Hello World</h1>
+    <div className="fluid-container">
+      <NavBar />
+    </div>
   )
 }
