@@ -13,7 +13,7 @@ export function recieveListings(json){
 export function fetchListings(){
   return (dispatch) => {
     dispatch(requestListings())
-    return fetch('http://api.bandsintown.com/artists/Common/events/recommended?location=PORTLAND&radius=150&app_id=anid&api_version=2.0&format=json')
+    return fetch('http://api.bandsintown.com/events/search.json?location=Portland,OR&app_id=PDXConcertGuide')
       .then((response) => response.json())
       .then((json) => dispatch(recieveListings(json)))
   }
