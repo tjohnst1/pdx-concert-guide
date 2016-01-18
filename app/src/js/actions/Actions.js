@@ -1,0 +1,11 @@
+import fetch from 'isomorphic-fetch'
+import {RECEIVE_LISTINGS, REQUEST_LISTINGS} from '../constants/constants'
+
+export function requestListings(){
+  type: REQUEST_LISTINGS
+}
+
+export function recieveListings(json){
+  type: RECEIVE_LISTINGS,
+  listings: json
+}
