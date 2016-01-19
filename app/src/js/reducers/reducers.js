@@ -1,4 +1,4 @@
-import { combineReducers } from 'react-redux'
+import { combineReducers } from 'redux'
 import { REQUEST_LISTINGS, RECEIVE_LISTINGS } from '../constants/constants'
 
 let initialState = {listings: [], isFetching: false}
