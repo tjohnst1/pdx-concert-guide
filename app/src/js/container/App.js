@@ -14,12 +14,12 @@ export default class App extends Component {
   }
 
   render(){
-    const {listings} = this.props
+    const {listings, isFetching} = this.props
     return (
       <div>
         <p>Artists</p>
         <ul>
-          <EventListings listings={listings} />
+          <EventListings listings={listings} isFetching={isFetching}/>
         </ul>
       </div>
     )
@@ -27,8 +27,8 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  listings: PropTypes.array.isRequired
-  // isFetching: PropTypes.bool.isRequired
+  listings: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired
 }
 
 function mapStateToProps(state){
