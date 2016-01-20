@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { fetchListingsIfNeeded } from '../actions/actions'
+import EventListings from '../components/EventListings'
 
 export default class App extends Component {
 
@@ -14,22 +15,21 @@ export default class App extends Component {
 
   render(){
     const {listings} = this.props
-    console.log('listings: ', listings);
     return (
       <div>
-        <p>Testing</p>
+        <p>Artists</p>
         <ul>
-          
+          <EventListings listings={listings} />
         </ul>
       </div>
     )
   }
 }
 
-// App.propTypes = {
-//   listings: PropTypes.array.isRequired,
-//   isFetching: PropTypes.bool.isRequired
-// }
+App.propTypes = {
+  listings: PropTypes.array.isRequired
+  // isFetching: PropTypes.bool.isRequired
+}
 
 function mapStateToProps(state){
   const { listings, isFetching } = state
