@@ -1,19 +1,16 @@
 import fetch from 'isomorphic-fetch'
 import {RECEIVE_LISTINGS, REQUEST_LISTINGS} from '../constants/constants'
 
-export function fetchPostsIfNeeded() {
-  return (dispatch, getState) => {
-    var state = getState()
-    if (state.listings.length < 1) {
-      return dispatch(fetchListings())
-    }
+export function fetchListingsIfNeeded() {
+  return (dispatch) => {
+    return dispatch(fetchListings())
   }
 }
 
 function fetchListings(){
   return (dispatch) => {
     dispatch(requestListings())
-    return fetch('http://api.bandsintown.com/events/search.json?location=Portland,OR&app_id=PDXConcertGuide')
+    return fetch('http://www.reddit.com/r/reactjs.api')
       .then((response) => response.json())
       .then((json) => dispatch(recieveListings(json)))
   }
@@ -29,5 +26,5 @@ function recieveListings(json){
   return {
     type: RECEIVE_LISTINGS,
     listings: json
-  }  
+  }
 }

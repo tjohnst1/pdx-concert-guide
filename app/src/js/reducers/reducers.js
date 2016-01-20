@@ -3,19 +3,29 @@ import { REQUEST_LISTINGS, RECEIVE_LISTINGS } from '../constants/constants'
 
 let initialState = {listings: [], isFetching: false}
 
-function posts(state = initialState, action){
-  switch (action.type){
+function isFetching(state = false, action){
+  switch (action.type) {
     case REQUEST_LISTINGS:
-      return Object.assign({}, state, {isFetching: true})
+      return true
     case RECEIVE_LISTINGS:
-      return Object.assign({}, state, {isFetching: false, listings: action.listings})
+      return false
+    default:
+      return state
+  }
+}
+
+function listings(state = [], action){
+  switch (action.type){
+    case RECEIVE_LISTINGS:
+      return action.listings
     default:
       return state
   }
 }
 
 const rootReducer = combineReducers({
-  posts
+  isFetching,
+  listings
 })
 
 export default rootReducer
