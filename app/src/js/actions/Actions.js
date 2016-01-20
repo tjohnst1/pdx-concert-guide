@@ -8,9 +8,10 @@ export function fetchListingsIfNeeded() {
 }
 
 function fetchListings(){
+  const url = 'http://api.songkick.com/api/3.0/metro_areas/12283/calendar.json?apikey=ewhKf5A1zoFbcx0A'
   return (dispatch) => {
     dispatch(requestListings())
-    return fetch('http://www.reddit.com/r/reactjs.api')
+    return fetch(url)
       .then((response) => response.json())
       .then((json) => dispatch(recieveListings(json)))
   }
@@ -25,6 +26,6 @@ function requestListings(){
 function recieveListings(json){
   return {
     type: RECEIVE_LISTINGS,
-    listings: json
+    listings: json.resultsPage.results.event
   }
 }
