@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react'
+import {capitalize} from '../util/utilities'
 
 class IndividualListing extends Component {
-
   render(){
     const {event} = this.props
     const date = event.start.date
     const time = event.start.time
-    const artists = event.performance[0].artist.displayName
+    const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
     return (
       <div className="row">
