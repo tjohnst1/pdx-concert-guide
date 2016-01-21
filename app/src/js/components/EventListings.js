@@ -1,12 +1,18 @@
 import React, { Component, PropTypes } from 'react'
+import IndividualListing from './IndividualListing'
 
 class EventListings extends Component {
   render(){
-    let artistsList = this.props.listings.map((event) => <li key={event.id}>{event.performance[0].artist.displayName}</li>)
+    let eventList = this.props.listings.map((event) => {
+      return (
+        <IndividualListing event={event} key={event.id}/>
+      )
+    })
     return (
-      <ul>
-        {this.props.isFetching ? <p>Loading...</p> : artistsList}
-      </ul>
+      <div className="row">
+        {this.props.isFetching ? <p>Loading...</p> : null}
+        {!this.props.isFetching ? eventList : null}
+      </div>
     )
   }
 }
