@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { fetchListingsIfNeeded } from '../actions/actions'
 import EventListings from '../components/EventListings'
+import EventFilter from '../components/EventFilter'
 
 export default class App extends Component {
 
@@ -14,13 +15,13 @@ export default class App extends Component {
   }
 
   render(){
-    const {listings, isFetching} = this.props
+    const {listings, isFetching, venues} = this.props
+    console.log('Venues:', venues)
     return (
       <div>
         <p>Artists</p>
-        <ul>
+          <EventFilter venues={venues}/>
           <EventListings listings={listings} isFetching={isFetching}/>
-        </ul>
       </div>
     )
   }
@@ -28,12 +29,14 @@ export default class App extends Component {
 
 App.propTypes = {
   listings: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool.isRequired
+  isFetching: PropTypes.bool.isRequired,
+  venues: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state){
   const { listings, isFetching } = state
-  return { listings, isFetching }
+  const venues = listings.map((event) => event.venue.displayName).filter((venue, index, arr) => arr.indexOf(venue) === index)
+  return { listings, isFetching, venues }
 }
 
 export default connect(mapStateToProps)(App)
