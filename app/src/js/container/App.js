@@ -4,6 +4,8 @@ import { fetchListingsIfNeeded } from '../actions/actions'
 import EventListings from '../components/EventListings'
 import EventFilter from '../components/EventFilter'
 
+import { visibleListings } from '../selectors/visibleListingsSelector'
+
 export default class App extends Component {
 
   componentDidMount(){
@@ -11,17 +13,13 @@ export default class App extends Component {
     dispatch(fetchListingsIfNeeded())
   }
 
-  componentWillReceiveProps(nextProps){
-  }
-
   render(){
-    const {listings, isFetching, venues} = this.props
-    console.log('Venues:', venues)
+    const {dispatch, listings, isFetching, selectedVenue, visibleListings} = this.props
+    console.log(this.props)
     return (
       <div>
         <p>Artists</p>
-          <EventFilter venues={venues}/>
-          <EventListings listings={listings} isFetching={isFetching}/>
+          <EventListings listings={listings} isFetching={isFetching} />
       </div>
     )
   }
@@ -30,13 +28,6 @@ export default class App extends Component {
 App.propTypes = {
   listings: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  venues: PropTypes.array.isRequired
 }
 
-function mapStateToProps(state){
-  const { listings, isFetching } = state
-  const venues = listings.map((event) => event.venue.displayName).filter((venue, index, arr) => arr.indexOf(venue) === index)
-  return { listings, isFetching, venues }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect(visibleListings)(App)

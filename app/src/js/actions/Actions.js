@@ -29,3 +29,10 @@ function recieveListings(json){
     listings: json.resultsPage.results.event
   }
 }
+
+export function selectedVenue(venue){
+  return {
+    type: SELECT_VENUE,
+    venue: venue
+  }
+}
