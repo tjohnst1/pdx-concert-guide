@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import {RECEIVE_LISTINGS, REQUEST_LISTINGS} from '../constants/constants'
+import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE} from '../constants/constants'
 
 export function fetchListingsIfNeeded() {
   return (dispatch) => {
@@ -30,7 +30,7 @@ function recieveListings(json){
   }
 }
 
-export function selectedVenue(venue){
+export function setSelectedVenue(venue){
   return {
     type: SELECT_VENUE,
     venue: venue

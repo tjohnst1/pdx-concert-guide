@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchListingsIfNeeded } from '../actions/actions'
+import { fetchListingsIfNeeded, setSelectedVenue } from '../actions/actions'
 import EventListings from '../components/EventListings'
 import EventFilter from '../components/EventFilter'
 
-import { visibleListings } from '../selectors/visibleListingsSelector'
+import { filteredListings } from '../selectors/listingSelectors'
 
 export default class App extends Component {
 
@@ -14,12 +14,13 @@ export default class App extends Component {
   }
 
   render(){
-    const {dispatch, listings, isFetching, selectedVenue, visibleListings} = this.props
-    console.log(this.props)
+    const {dispatch, listings, isFetching, selectedVenue, filteredListings, venues} = this.props
+    console.log("Props:", this.props)
     return (
       <div>
         <p>Artists</p>
-          <EventListings listings={listings} isFetching={isFetching} />
+          <EventFilter venues={venues} setSelectedVenue={(venue) => dispatch(setSelectedVenue(venue))}/>
+          <EventListings listings={filteredListings} isFetching={isFetching} />
       </div>
     )
   }
@@ -30,4 +31,4 @@ App.propTypes = {
   isFetching: PropTypes.bool.isRequired,
 }
 
-export default connect(visibleListings)(App)
+export default connect(filteredListings)(App)

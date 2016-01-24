@@ -3,7 +3,7 @@ import { utilities } from '../util/utilities'
 
 
 function eventsByVenue(events, venue){
-  if (venue !== false){
+  if (venue !== "All"){
     return events.filter((event) => event.venue.displayName === venue)
   } else {
     return events
@@ -22,7 +22,7 @@ const venueSelector = createSelector(
   (listings) =>  getVenues(listings)
 )
 
-export const visibleListings = createSelector(
+export const filteredListings = createSelector(
   listingsSelector,
   selectedVenueSelector,
   isFetchingSelector,
@@ -33,7 +33,7 @@ export const visibleListings = createSelector(
       selectedVenue,
       isFetching,
       venues,
-      visibleListings: eventsByVenue(listings, selectedVenue)
+      filteredListings: eventsByVenue(listings, selectedVenue)
     }
   }
 )

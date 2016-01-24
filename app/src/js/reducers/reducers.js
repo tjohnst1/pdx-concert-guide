@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { REQUEST_LISTINGS, RECEIVE_LISTINGS, SELECT_VENUE } from '../constants/constants'
 
-let initialState = {listings: [], isFetching: false, selectedVenue: false}
+let initialState = {listings: [], isFetching: false}
 
 function isFetching(state = false, action){
   switch (action.type) {
@@ -23,7 +23,7 @@ function listings(state = [], action){
   }
 }
 
-function selectedVenue(state = false, action){
+function selectedVenue(state = 'All', action){
   switch (action.type) {
     case SELECT_VENUE:
       return action.venue

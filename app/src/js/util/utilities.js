@@ -5,3 +5,9 @@ export function capitalize(word){
   )
   return words.join(" ")
 }
+
+var currentId = 0
+export function uniqueId(){
+  currentId++
+  return currentId
+}
