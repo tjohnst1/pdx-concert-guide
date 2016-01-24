@@ -9,7 +9,7 @@ class EventListings extends Component {
       )
     })
     return (
-      <div className="row">
+      <div className="row listings-container">
         {this.props.isFetching ? <p>Loading...</p> : null}
         {!this.props.isFetching ? eventList : null}
       </div>

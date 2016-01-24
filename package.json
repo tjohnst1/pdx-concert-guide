@@ -13,6 +13,7 @@
     "url": "https://github.com/tjohnst1/pdx-concert-guide.git"
   },
   "dependencies": {
+    "classnames": "^2.2.3",
     "flux": "^2.1.1",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.11.1",
@@ -29,7 +30,6 @@
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "classnames": "^2.2.3",
     "grunt": "^0.4.5",
     "grunt-contrib-compass": "^1.0.4",
     "grunt-contrib-watch": "^0.6.1",
