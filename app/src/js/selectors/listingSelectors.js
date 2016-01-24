@@ -11,12 +11,12 @@ function eventsByVenue(events, venue){
 }
 
 function eventsByDate(events, dateObj){
-  if (date !== "All"){
+  if ((dateObj.startDate !== null) && (dateObj.endDate !== null)){
     const selectedStartDate = moment(dateObj.startDate)
     const selectedEndDate = moment(dateObj.endDate)
     return events.filter((event) => {
-      let eventStart = moment(event.start.date)
-      return (selectedStartDate.isBefore(eventStart) || selectedStartDate.isSame(eventStart)) && (selectedEndDate.isAfter(eventStart) || selectedStartDate.isSame(eventStart)) 
+      let eventDate = moment(event.start.date)
+      return (eventDate.isAfter(selectedStartDate) || eventDate.isSame(selectedStartDate, 'day')) && (eventDate.isBefore(selectedEndDate) || eventDate.isSame(selectedEndDate, 'day'))
     })
   } else {
     return events
@@ -30,10 +30,17 @@ function getVenues(events){
 const listingsSelector = (state) => state.listings
 const isFetchingSelector = (state) => state.isFetching
 const selectedVenueSelector = (state) => state.selectedVenue
-const selectedDateSelector = (state) => state.selectedVenue
+const selectedDateSelector = (state) => state.selectedDate
+
 const venueSelector = createSelector(
   listingsSelector,
   (listings) =>  getVenues(listings)
+)
+
+const filteredByVenue = createSelector(
+  listingsSelector,
+  selectedVenueSelector,
+  (listings, selectedVenue) => eventsByVenue(listings, selectedVenue)
 )
 
 export const filteredListings = createSelector(
@@ -42,14 +49,15 @@ export const filteredListings = createSelector(
   selectedDateSelector,
   isFetchingSelector,
   venueSelector,
-  (listings, selectedVenue, selectedDate, isFetching, venues) => {
+  filteredByVenue,
+  (listings, selectedVenue, selectedDate, isFetching, venues, filteredByVenue) => {
     return {
       listings,
       selectedVenue,
       selectedDate,
       isFetching,
       venues,
-      filteredListings: eventsByVenue(listings, selectedVenue)
+      filteredListings: eventsByDate(filteredByVenue, selectedDate)
     }
   }
 )

@@ -37,10 +37,10 @@ export function setVenueFilter(venue){
   }
 }
 
-export function setDateFilter(startDate, endDate){
+export function setDateFilter(dateObj){
   return {
     type: SELECT_DATE,
-    startDate: startDate,
-    endDate: endDate
+    startDate: dateObj.startDate,
+    endDate: dateObj.endDate
   }
 }

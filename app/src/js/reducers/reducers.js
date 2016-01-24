@@ -32,7 +32,7 @@ function selectedVenue(state = 'All', action){
   }
 }
 
-function selectedDate(state = 'All', action){
+function selectedDate(state = {startDate: null, endDate: null}, action){
   switch (action.type){
     case SELECT_DATE:
       return {
