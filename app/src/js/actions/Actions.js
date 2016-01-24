@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE} from '../constants/constants'
+import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE, SELECT_DATE} from '../constants/constants'
 
 export function fetchListingsIfNeeded() {
   return (dispatch) => {
@@ -30,9 +30,17 @@ function recieveListings(json){
   }
 }
 
-export function setSelectedVenue(venue){
+export function setVenueFilter(venue){
   return {
     type: SELECT_VENUE,
     venue: venue
+  }
+}
+
+export function setDateFilter(startDate, endDate){
+  return {
+    type: SELECT_DATE,
+    startDate: startDate,
+    endDate: endDate
   }
 }

@@ -10,7 +10,7 @@ class EventFilter extends Component {
   }
   setFilter(e){
     this.setState({venue: e.target.value})
-    this.props.setSelectedVenue(e.target.value)
+    this.props.setVenueFilter(e.target.value)
     console.log('Venue:', this.state.venue)
   }
   render(){
@@ -18,7 +18,7 @@ class EventFilter extends Component {
     return (
       <div>
         <select value={this.state.venue} onChange={(e) => this.setFilter(e)}>
-          <option value="All">Venues</option>
+          <option value="All">All Venues</option>
           {venues}
         </select>
       </div>

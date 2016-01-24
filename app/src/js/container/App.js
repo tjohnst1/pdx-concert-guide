@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchListingsIfNeeded, setSelectedVenue } from '../actions/actions'
+import { fetchListingsIfNeeded, setVenueFilter } from '../actions/actions'
 import EventListings from '../components/EventListings'
 import EventFilter from '../components/EventFilter'
 
@@ -19,7 +19,7 @@ export default class App extends Component {
     return (
       <div>
         <p>Artists</p>
-          <EventFilter venues={venues} setSelectedVenue={(venue) => dispatch(setSelectedVenue(venue))}/>
+          <EventFilter venues={venues} setVenueFilter={(venue) => dispatch(setVenueFilter(venue))}/>
           <EventListings listings={filteredListings} isFetching={isFetching} />
       </div>
     )
