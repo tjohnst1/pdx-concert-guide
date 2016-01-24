@@ -10,10 +10,16 @@ class IndividualListing extends Component {
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
     return (
-      <div className="row">
-        <div className="col-sm-2">{date}</div>
-        <div className="col-sm-5">{artists}</div>
-        <div className="col-sm-5">{venue}</div>
+      <div className="row listing">
+        <div className="col-sm-2">
+          <p className="listing-date">{date}</p>
+        </div>
+        <div className="col-sm-5">
+          <p className="listing-artists">{artists}</p>
+        </div>
+        <div className="col-sm-5">
+          <p className="listing-venue">{venue}</p>
+        </div>
       </div>
     )
   }

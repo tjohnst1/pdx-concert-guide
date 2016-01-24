@@ -17,7 +17,7 @@ export default class App extends Component {
     const {dispatch, listings, isFetching, selectedVenue, filteredListings, venues} = this.props
     return (
       <div>
-        <p>Artists</p>
+        <h1 className="logo">PDX Tunes</h1>
           <EventFilter venues={venues} setVenueFilter={(venue) => dispatch(setVenueFilter(venue))}
            setDateFilter={(date, type) => dispatch(setDateFilter(date, type))} />
           <EventListings listings={filteredListings} isFetching={isFetching} />

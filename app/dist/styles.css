@@ -8791,7 +8791,81 @@ button.close {
     display: none !important;
   }
 }
-/* line 1, ../src/scss/_nav.scss */
-.nav-link {
-  display: inline-block;
+/* line 1, ../src/scss/_index.scss */
+body {
+  background: #22A7F0;
+  color: white;
+  font-family: "europa",sans-serif;
+}
+
+/* line 7, ../src/scss/_index.scss */
+.logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 1, ../src/scss/_listings.scss */
+.listing {
+  border-bottom: 2px solid #0b6ea5;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+}
+/* line 6, ../src/scss/_listings.scss */
+.listing:first-of-type {
+  border-top: 2px solid #0b6ea5;
+}
+/* line 9, ../src/scss/_listings.scss */
+.listing:hover {
+  cursor: pointer;
+  background: #0f93dc;
+}
+
+/* line 15, ../src/scss/_listings.scss */
+.listing-date {
+  margin: 0;
+  color: #053149;
+}
+
+/* line 20, ../src/scss/_listings.scss */
+.listing-artists {
+  margin: 0;
+}
+
+/* line 24, ../src/scss/_listings.scss */
+.listing-venue {
+  margin: 0;
+}
+
+/* line 31, ../src/scss/_listings.scss */
+.image {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+/* line 36, ../src/scss/_listings.scss */
+.image img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* line 40, ../src/scss/_listings.scss */
+.image:after {
+  content: '\A';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+/* line 50, ../src/scss/_listings.scss */
+.image:hover:after {
+  opacity: 1;
 }
