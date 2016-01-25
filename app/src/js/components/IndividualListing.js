@@ -4,7 +4,7 @@ import { capitalize } from '../util/utilities'
 import moment from 'moment'
 import classNames from 'classnames'
 import { fetchVenueInfoIfNeeded } from '../actions/actions'
-import Map from './Map'
+import IndividualListingInfo from './IndividualListingInfo'
 
 class IndividualListing extends Component {
   constructor(){
@@ -25,19 +25,10 @@ class IndividualListing extends Component {
     const venue = event.venue.displayName
     const lat = event.venue.lat
     const lng = event.venue.lng
-    let listingInfoClasses = classNames({
-      "listing-info": true,
-      "row": true,
-      "open": this.state.open,
-    })
     let listingHeadlineClasses = classNames({
       "listing-headline": true,
       "row": true,
       "hidden": this.state.open
-    })
-    let closedRow = classNames({
-      "col-sm-12": true,
-      "closed-row": !this.state.open
     })
     return (
       <div className="row listing" onClick={() => this.toggleOpen()}>
@@ -52,18 +43,7 @@ class IndividualListing extends Component {
             <p className="listing-venue">{venue}</p>
           </div>
         </div>
-        <div className={listingInfoClasses}>
-          <div className="closedRow">
-            <h2 className="listing-artists">{artists}</h2>
-            <p className="listing-date">{date}</p>
-            <p className="listing-venue">{venue}</p>
-            <div>
-              <p className="listing-venue">{venueInfo.houseNumber} {venueInfo.road}</p>
-              <p className="listing-venue">{venueInfo.city || "Portland"}, OR {venueInfo.postcode}</p>
-            </div>
-            <Map lat={lat} lng={lng}/>
-        </div>
-        </div>
+        <IndividualListingInfo lat={lat} lng={lng} event={event} venueInfo={venueInfo} open={this.state.open}/>
       </div>
     )
   }
