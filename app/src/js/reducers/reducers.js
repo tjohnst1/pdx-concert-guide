@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { REQUEST_LISTINGS, RECEIVE_LISTINGS, SELECT_VENUE, SELECT_DATE, RECEIVE_VENUE_INFO } from '../constants/constants'
+import { REQUEST_LISTINGS, RECEIVE_LISTINGS, SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO } from '../constants/constants'
 
 let initialState = {listings: [], isFetching: false}
 

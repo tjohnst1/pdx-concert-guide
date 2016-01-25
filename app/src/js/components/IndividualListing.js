@@ -4,6 +4,7 @@ import { capitalize } from '../util/utilities'
 import moment from 'moment'
 import classNames from 'classnames'
 import { fetchVenueInfoIfNeeded } from '../actions/actions'
+import Map from './Map'
 
 class IndividualListing extends Component {
   constructor(){
@@ -18,11 +19,12 @@ class IndividualListing extends Component {
     this.setState({open: !this.state.open})
   }
   render(){
-    const {event} = this.props
-    const {venueInfo} = this.props
+    const {event, venueInfo} = this.props
     const date = moment(event.start.date).format("ddd Do")
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
+    const lat = event.venue.lat
+    const lng = event.venue.lng
     let listingInfoClasses = classNames({
       "listing-info": true,
       "row": true,
@@ -55,9 +57,12 @@ class IndividualListing extends Component {
             <h2 className="listing-artists">{artists}</h2>
             <p className="listing-date">{date}</p>
             <p className="listing-venue">{venue}</p>
-            <p className="listing-venue">{venueInfo.houseNumber} {venueInfo.road}</p>
-            <p className="listing-venue">{venueInfo.city || "Portland"}, OR {venueInfo.postcode}</p>
-          </div>
+            <div>
+              <p className="listing-venue">{venueInfo.houseNumber} {venueInfo.road}</p>
+              <p className="listing-venue">{venueInfo.city || "Portland"}, OR {venueInfo.postcode}</p>
+            </div>
+            <Map lat={lat} lng={lng}/>
+        </div>
         </div>
       </div>
     )
