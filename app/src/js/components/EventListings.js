@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import IndividualListing from './IndividualListing'
+import { fetchVenueInfoIfNeeded } from '../actions/actions'
 
 class EventListings extends Component {
   render(){

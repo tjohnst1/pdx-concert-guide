@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE, SELECT_DATE} from '../constants/constants'
+import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO} from '../constants/constants'
 
 export function fetchListingsIfNeeded() {
   return (dispatch) => {
@@ -42,5 +42,41 @@ export function setDateFilter(dateObj){
     type: SELECT_DATE,
     startDate: dateObj.startDate,
     endDate: dateObj.endDate
+  }
+}
+
+export function fetchVenueInfoIfNeeded(infoObj) {
+  return (dispatch) => {
+    return dispatch(fetchVenueInfo(infoObj))
+  }
+}
+
+function requestVenueInfo(){
+  return {
+    type: REQUEST_VENUE_INFO
+  }
+}
+
+function recieveVenueInfo(json){
+  return {
+    type: RECEIVE_VENUE_INFO,
+    info: {
+      houseNumber: json.address.house_number,
+      road: json.address.road,
+      city: json.address.city,
+      postcode: json.address.postcode,
+    }
+  }
+}
+
+function fetchVenueInfo(infoObj){
+  const lat = infoObj.lat
+  const lon = infoObj.lon
+  const url = `http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`
+  return (dispatch) => {
+    dispatch(requestVenueInfo())
+    return fetch(url)
+      .then((response) => response.json())
+      .then((json) => dispatch(recieveVenueInfo(json)))
   }
 }

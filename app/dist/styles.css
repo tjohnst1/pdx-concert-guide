@@ -8456,36 +8456,7 @@ button.close {
   float: left !important;
 }
 
-/* line 27, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
-.hide {
-  display: none !important;
-}
-
-/* line 30, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
-.show {
-  display: block !important;
-}
-
-/* line 33, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
-.invisible {
-  visibility: hidden;
-}
-
-/* line 36, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-
-/* line 45, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
-.hidden {
-  display: none !important;
-}
-
-/* line 53, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
+/* line 25, ../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss */
 .affix {
   position: fixed;
 }
@@ -8828,31 +8799,64 @@ body {
 }
 
 /* line 19, ../src/scss/_listings.scss */
-.listing-date {
+.listing-headline {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.4s;
+  max-height: 500px;
+}
+/* line 24, ../src/scss/_listings.scss */
+.listing-headline.hidden {
+  visibility: collapse;
+  opacity: 0;
+  max-height: 0;
+}
+/* line 29, ../src/scss/_listings.scss */
+.listing-headline .listing-date {
   margin: 0;
   color: #053149;
 }
-
-/* line 24, ../src/scss/_listings.scss */
-.listing-artists {
+/* line 34, ../src/scss/_listings.scss */
+.listing-headline .listing-artists {
+  margin: 0;
+}
+/* line 38, ../src/scss/_listings.scss */
+.listing-headline .listing-venue {
   margin: 0;
 }
 
-/* line 28, ../src/scss/_listings.scss */
-.listing-venue {
-  margin: 0;
-}
-
-/* line 32, ../src/scss/_listings.scss */
+/* line 43, ../src/scss/_listings.scss */
 .listing-info {
-  visibility: hidden;
+  visibility: collapse;
   opacity: 0;
-  transition: visibility 0.3s ease, opacity 0.3s ease, max-height 0.5s ease;
+  transition: 0.3s 0.1s;
   max-height: 0;
+  transform: translate(0, -50px);
+  padding: 25px;
 }
-/* line 37, ../src/scss/_listings.scss */
+/* line 50, ../src/scss/_listings.scss */
 .listing-info.open {
   visibility: visible;
   opacity: 1;
   max-height: 500px;
+  transform: translate(0, 0);
+}
+/* line 56, ../src/scss/_listings.scss */
+.listing-info .listing-date {
+  margin: 0;
+  color: #053149;
+}
+/* line 61, ../src/scss/_listings.scss */
+.listing-info .listing-artists {
+  margin: 0;
+  font-weight: 700;
+}
+/* line 66, ../src/scss/_listings.scss */
+.listing-info .listing-venue {
+  margin: 0;
+}
+
+/* line 71, ../src/scss/_listings.scss */
+.closed-row {
+  max-height: 0;
 }
