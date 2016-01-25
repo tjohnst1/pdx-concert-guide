@@ -8804,59 +8804,68 @@ body {
   visibility: visible;
   transition: 0.4s;
   max-height: 500px;
+  overflow-y: hidden;
 }
-/* line 24, ../src/scss/_listings.scss */
+/* line 26, ../src/scss/_listings.scss */
 .listing-headline.hidden {
-  visibility: collapse;
+  visibility: hidden;
   opacity: 0;
   max-height: 0;
 }
-/* line 29, ../src/scss/_listings.scss */
+/* line 31, ../src/scss/_listings.scss */
 .listing-headline .listing-date {
   margin: 0;
   color: #053149;
 }
-/* line 34, ../src/scss/_listings.scss */
+/* line 36, ../src/scss/_listings.scss */
 .listing-headline .listing-artists {
   margin: 0;
 }
-/* line 38, ../src/scss/_listings.scss */
+/* line 40, ../src/scss/_listings.scss */
 .listing-headline .listing-venue {
   margin: 0;
 }
 
-/* line 43, ../src/scss/_listings.scss */
+/* line 45, ../src/scss/_listings.scss */
 .listing-info {
-  visibility: collapse;
+  visibility: hidden;
   opacity: 0;
   transition: 0.3s 0.1s;
   max-height: 0;
   transform: translate(0, -50px);
-  padding: 25px;
+  overflow-y: hidden;
+  padding: 0 15px;
 }
-/* line 50, ../src/scss/_listings.scss */
+/* line 53, ../src/scss/_listings.scss */
 .listing-info.open {
   visibility: visible;
   opacity: 1;
   max-height: 500px;
+  padding: 15px;
   transform: translate(0, 0);
 }
-/* line 56, ../src/scss/_listings.scss */
+/* line 60, ../src/scss/_listings.scss */
 .listing-info .listing-date {
   margin: 0;
   color: #053149;
 }
-/* line 61, ../src/scss/_listings.scss */
+/* line 65, ../src/scss/_listings.scss */
 .listing-info .listing-artists {
   margin: 0;
   font-weight: 700;
 }
-/* line 66, ../src/scss/_listings.scss */
+/* line 70, ../src/scss/_listings.scss */
 .listing-info .listing-venue {
   margin: 0;
 }
 
-/* line 71, ../src/scss/_listings.scss */
+/* line 75, ../src/scss/_listings.scss */
+.venue-info-container {
+  background: #0c7bb7;
+  padding: 15px;
+}
+
+/* line 81, ../src/scss/_listings.scss */
 .closed-row {
   max-height: 0px;
 }

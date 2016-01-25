@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { capitalize } from '../util/utilities'
 import moment from 'moment'
 import classNames from 'classnames'
-import { fetchVenueInfoIfNeeded } from '../actions/actions'
+import { fetchVenueInfoIfNeeded, fetchArtistInfoIfNeeded } from '../actions/actions'
 import IndividualListingInfo from './IndividualListingInfo'
 
 class IndividualListing extends Component {
@@ -15,11 +15,13 @@ class IndividualListing extends Component {
   }
   toggleOpen(){
     const { dispatch, event } = this.props
+    const artist = event.performance[0].displayName
     dispatch(fetchVenueInfoIfNeeded({lat: event.venue.lat, lon: event.venue.lng}))
+    dispatch(fetchArtistInfoIfNeeded(artist))
     this.setState({open: !this.state.open})
   }
   render(){
-    const {event, venueInfo} = this.props
+    const {event, venueInfo, artistInfo} = this.props
     const date = moment(event.start.date).format("ddd Do")
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
@@ -43,14 +45,17 @@ class IndividualListing extends Component {
             <p className="listing-venue">{venue}</p>
           </div>
         </div>
-        <IndividualListingInfo lat={lat} lng={lng} event={event} venueInfo={venueInfo} open={this.state.open}/>
+        <IndividualListingInfo lat={lat} lng={lng} event={event} venueInfo={venueInfo} artistInfo={artistInfo} open={this.state.open}/>
       </div>
     )
   }
 }
 
 var mapStateToProps = function(state){
-  return { venueInfo:state.venueInfo };
+  return {
+    venueInfo: state.venueInfo,
+    artistInfo: state.artistInfo
+  };
 };
 
 export default connect(mapStateToProps)(IndividualListing)

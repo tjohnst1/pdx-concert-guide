@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-fetch'
-import {RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO} from '../constants/constants'
+import { RECEIVE_LISTINGS, REQUEST_LISTINGS, SELECT_VENUE,
+         SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO,
+         REQUEST_ARTIST_INFO, RECEIVE_ARTIST_INFO } from '../constants/constants'
 
 export function fetchListingsIfNeeded() {
   return (dispatch) => {
@@ -78,5 +80,39 @@ function fetchVenueInfo(infoObj){
     return fetch(url)
       .then((response) => response.json())
       .then((json) => dispatch(recieveVenueInfo(json)))
+  }
+}
+
+export function fetchArtistInfoIfNeeded(artistName) {
+  return (dispatch) => {
+    return dispatch(fetchArtistInfo(artistName))
+  }
+}
+
+function requestArtistInfo(){
+  return {
+    type: REQUEST_ARTIST_INFO
+  }
+}
+
+function recieveArtistInfo(json){
+  return {
+    type: RECEIVE_ARTIST_INFO,
+    info: {
+      imageUrl: json.artists.items[0].images[2].url,
+      genres: json.artists.items[0].genres,
+      spotifyUrl: json.artists.items[0].external_urls.spotify
+    }
+  }
+}
+
+function fetchArtistInfo(artistName){
+  const formattedName = artistName.replace(/\s/g,'+')
+  const url = `https://api.spotify.com/v1/search?q=${formattedName}&type=artist&limit=1`
+  return (dispatch) => {
+    dispatch(requestArtistInfo())
+    return fetch(url)
+      .then((response) => response.json())
+      .then((json) => dispatch(recieveArtistInfo(json)))
   }
 }

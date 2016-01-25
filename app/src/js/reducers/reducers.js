@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { REQUEST_LISTINGS, RECEIVE_LISTINGS, SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO } from '../constants/constants'
+import { REQUEST_LISTINGS, RECEIVE_LISTINGS, SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO, RECEIVE_ARTIST_INFO, REQUEST_ARTIST_INFO } from '../constants/constants'
 
 let initialState = {listings: [], isFetching: false}
 
@@ -53,12 +53,22 @@ function venueInfo(state = '', action){
   }
 }
 
+function artistInfo(state = '', action){
+  switch (action.type){
+    case RECEIVE_ARTIST_INFO:
+      return action.info
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   isFetching,
   listings,
   selectedVenue,
   selectedDate,
-  venueInfo
+  venueInfo,
+  artistInfo
 })
 
 export default rootReducer

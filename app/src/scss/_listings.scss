@@ -21,8 +21,10 @@
   visibility: visible;
   transition: 0.4s;
   max-height: 500px;
+  overflow-y: hidden;
+
   &.hidden{
-    visibility: collapse;
+    visibility: hidden;
     opacity: 0;
     max-height: 0;
   }
@@ -41,16 +43,18 @@
 }
 
 .listing-info{
-  visibility: collapse;
+  visibility: hidden;
   opacity: 0;
   transition: 0.3s 0.1s;
   max-height: 0;
   transform: translate(0, -50px);
-  padding: 25px;
+  overflow-y: hidden;
+  padding: 0 15px;
   &.open{
     visibility: visible;
     opacity: 1;
     max-height: 500px;
+    padding: 15px;
     transform: translate(0, 0);
   }
   .listing-date{
@@ -67,6 +71,12 @@
     margin: 0;
   }
 }
+
+.venue-info-container{
+  background: $venue-info-container;
+  padding: 15px;
+}
+
 
 .closed-row{
   max-height: 0px;

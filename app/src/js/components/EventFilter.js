@@ -24,7 +24,6 @@ class EventFilter extends Component {
     this.props.setVenueFilter(e.target.value)
   }
   render(){
-    console.log("state:", this.state)
     const venues = this.props.venues.map((venue) => <option value={venue} key={uniqueId()}>{venue}</option>)
     return (
       <div>
