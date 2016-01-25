@@ -1,0 +1,20 @@
+.filter{
+  input[type="date"]{
+    background: $filter-background;
+    border: none;
+    line-height: 1.75em;
+    padding: 0 5px;
+    &:focus{
+      outline: none;
+    }
+    &::-webkit-calendar-picker-indicator:hover{
+      background: $filter-background;
+      color: $calendar-picker-carrot;
+    }
+  }
+}
+
+select{
+  border: none;
+  color: black;
+}

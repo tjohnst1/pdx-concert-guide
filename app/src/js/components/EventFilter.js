@@ -26,7 +26,7 @@ class EventFilter extends Component {
   render(){
     const venues = this.props.venues.map((venue) => <option value={venue} key={uniqueId()}>{venue}</option>)
     return (
-      <div>
+      <div className="filter">
         Start: <input type="date" value={this.state.startDate} onChange={this.setDateFilter.bind(this, "start")}/>
         End: <input type="date" value={this.state.endDate} onChange={this.setDateFilter.bind(this, "end")}/>
         <select value={this.state.venue} onChange={(e) => this.setVenueFilter(e)}>

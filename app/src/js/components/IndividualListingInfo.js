@@ -10,7 +10,7 @@ export default class IndividualListingInfo extends Component {
     const date = moment(event.start.date).format("ddd Do")
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
-    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p>{genre}</p>) : null
+    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres">{genre}</p>) : null
     let listingInfoClasses = classNames({
       "listing-info": true,
       "row": true,

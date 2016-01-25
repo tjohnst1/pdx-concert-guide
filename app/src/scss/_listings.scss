@@ -39,6 +39,7 @@
 
   .listing-venue{
     margin: 0;
+    color: $listing-venue;
   }
 }
 
@@ -70,7 +71,12 @@
   .listing-venue{
     margin: 0;
   }
+  
+  .listing-genres{
+    color: $listing-genres
+  }
 }
+
 
 .venue-info-container{
   background: $venue-info-container;
