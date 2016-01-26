@@ -39,20 +39,13 @@ class IndividualListing extends Component {
     const lng = event.venue.lng
     let listingHeadlineClasses = classNames({
       "listing-headline": true,
-      "row": true
     })
     return (
-      <div className="row listing" onClick={() => this.toggleOpen()}>
+      <div className="listing" onClick={() => this.toggleOpen()}>
         <div className={listingHeadlineClasses}>
-          <div className="col-sm-2">
             <p className="listing-date">{date}</p>
-          </div>
-          <div className="col-sm-5">
             <p className="listing-artists">{artists}</p>
-          </div>
-          <div className="col-sm-5">
             <p className="listing-venue">{venue}</p>
-          </div>
         </div>
         <IndividualListingInfo key={uniqueId()} lat={lat} lng={lng} event={event} venueInfo={venueInfo} artistInfo={artistInfo} open={this.state.open}/>
       </div>

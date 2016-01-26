@@ -24,96 +24,171 @@ body {
 
 /* line 1, ../src/scss/_listings.scss */
 .listings-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   margin: 10px 0;
 }
+/* line 20, ../src/scss/bourbon/addons/_clearfix.scss */
+.listings-container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
 
-/* line 5, ../src/scss/_listings.scss */
+/* line 6, ../src/scss/_listings.scss */
 .listing {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   border-bottom: 2px solid #E6DCDB;
   margin: 0;
   padding: 10px;
   position: relative;
   transition: 0.3s;
 }
-/* line 11, ../src/scss/_listings.scss */
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing:last-child {
+  margin-right: 0;
+}
+/* line 13, ../src/scss/_listings.scss */
 .listing:first-of-type {
   border-top: 2px solid #E6DCDB;
 }
-/* line 14, ../src/scss/_listings.scss */
+/* line 16, ../src/scss/_listings.scss */
 .listing:hover {
   cursor: pointer;
   background: #EEEEEE;
 }
 
-/* line 20, ../src/scss/_listings.scss */
+/* line 22, ../src/scss/_listings.scss */
 .listing-headline {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   opacity: 1;
-  visibility: visible;
   transition: 0.3s;
-  max-height: 1000px;
-  overflow-y: hidden;
+  max-height: 200px;
+  overflow: hidden;
 }
-/* line 27, ../src/scss/_listings.scss */
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing-headline:last-child {
+  margin-right: 0;
+}
+/* line 28, ../src/scss/_listings.scss */
 .listing-headline.hidden {
-  visibility: hidden;
-  opacity: 0;
+  opacity: 0.5;
   max-height: 0;
 }
 /* line 32, ../src/scss/_listings.scss */
 .listing-headline .listing-date {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
   margin: 0;
   color: #CF000F;
 }
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing-headline .listing-date:last-child {
+  margin-right: 0;
+}
 /* line 37, ../src/scss/_listings.scss */
 .listing-headline .listing-artists {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
   margin: 0;
+}
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing-headline .listing-artists:last-child {
+  margin-right: 0;
 }
 /* line 41, ../src/scss/_listings.scss */
 .listing-headline .listing-venue {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
   margin: 0;
   color: #25373D;
 }
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing-headline .listing-venue:last-child {
+  margin-right: 0;
+}
 
-/* line 47, ../src/scss/_listings.scss */
+/* line 48, ../src/scss/_listings.scss */
 .listing-info {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   max-height: 0;
   overflow: hidden;
   display: block;
   transition: 0.3s;
   opacity: 0.5;
 }
-/* line 53, ../src/scss/_listings.scss */
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.listing-info:last-child {
+  margin-right: 0;
+}
+/* line 55, ../src/scss/_listings.scss */
 .listing-info.open {
   opacity: 1;
   max-height: 300px;
   transition: 0.3s;
 }
-/* line 58, ../src/scss/_listings.scss */
-.listing-info .listing-date {
+
+/* line 62, ../src/scss/_listings.scss */
+.artist-info-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+}
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.artist-info-container:last-child {
+  margin-right: 0;
+}
+/* line 64, ../src/scss/_listings.scss */
+.artist-info-container .listing-date {
   margin: 0;
   color: #CF000F;
 }
-/* line 63, ../src/scss/_listings.scss */
-.listing-info .listing-artists {
+/* line 68, ../src/scss/_listings.scss */
+.artist-info-container .listing-artists {
   margin: 0;
   font-weight: 700;
 }
-/* line 68, ../src/scss/_listings.scss */
-.listing-info .listing-venue {
-  margin: 0;
-}
 /* line 72, ../src/scss/_listings.scss */
-.listing-info .listing-genres {
+.artist-info-container .listing-genres {
   color: #505E63;
 }
 
-/* line 78, ../src/scss/_listings.scss */
+/* line 77, ../src/scss/_listings.scss */
 .venue-info-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
   background: #EEEEEE;
   padding: 15px;
 }
+/* line 89, ../src/scss/neat/grid/_span-columns.scss */
+.venue-info-container:last-child {
+  margin-right: 0;
+}
+/* line 81, ../src/scss/_listings.scss */
+.venue-info-container .listing-venue {
+  margin: 0;
+}
 
-/* line 84, ../src/scss/_listings.scss */
+/* line 87, ../src/scss/_listings.scss */
 .closed-row {
   max-height: 0px;
 }

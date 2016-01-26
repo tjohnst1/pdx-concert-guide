@@ -13,7 +13,6 @@ export default class IndividualListingInfo extends Component {
     const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres">{genre}</p>) : null
     let listingInfoClasses = classNames({
       "listing-info": true,
-      "row": true,
       "open": open,
     })
     let closedRow = classNames({
@@ -23,14 +22,14 @@ export default class IndividualListingInfo extends Component {
     // <Map lat={lat} lng={lng}/>
     return (
       <div className={listingInfoClasses}>
-        <div className="col-sm-8">
+        <div className="artist-info-container">
           <p className="listing-date">{date}</p>
           <h2 className="listing-artists">{artists}</h2>
             {genres}
             <img src={artistInfo.imageUrl} />
             <p>Spotify: {artistInfo.spotifyUrl}</p>
         </div>
-        <div className="col-sm-4 venue-info-container">
+        <div className="venue-info-container">
           <p className="listing-venue">{venue}</p>
           <div>
             <p className="listing-venue">{venueInfo.houseNumber} {venueInfo.road}</p>

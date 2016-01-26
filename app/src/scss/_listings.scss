@@ -1,8 +1,10 @@
 .listings-container{
+  @include outer-container;
   margin: 10px 0;
 }
 
 .listing{
+  @include span-columns(12);
   border-bottom: 2px solid $border;
   margin: 0;
   padding: 10px;
@@ -18,33 +20,33 @@
 }
 
 .listing-headline{
+  @include span-columns(12);
   opacity: 1;
-  visibility: visible;
   transition: 0.3s;
-  max-height: 1000px;
-  overflow-y: hidden;
-
+  max-height: 200px;
+  overflow: hidden;
   &.hidden{
-    visibility: hidden;
-    opacity: 0;
+    opacity: 0.5;
     max-height: 0;
   }
   .listing-date{
+    @include span-columns(2);
     margin: 0;
     color: $listing-date;
   }
-
   .listing-artists{
+    @include span-columns(6);
     margin: 0;
   }
-
   .listing-venue{
+    @include span-columns(4);
     margin: 0;
     color: $listing-venue;
   }
 }
 
 .listing-info{
+  @include span-columns(12);
   max-height: 0;
   overflow: hidden;
   display: block;
@@ -55,29 +57,30 @@
     max-height: 300px;
     transition: 0.3s;
   }
+}
+
+.artist-info-container{
+  @include span-columns(8);
   .listing-date{
     margin: 0;
     color: $listing-date;
   }
-
   .listing-artists{
     margin: 0;
     font-weight: 700;
   }
-
-  .listing-venue{
-    margin: 0;
-  }
-
   .listing-genres{
     color: $listing-genres
   }
 }
 
-
 .venue-info-container{
+  @include span-columns(4);
   background: $venue-info-container;
   padding: 15px;
+  .listing-venue{
+    margin: 0;
+  }
 }
 
 
