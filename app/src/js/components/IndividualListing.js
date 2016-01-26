@@ -39,8 +39,7 @@ class IndividualListing extends Component {
     const lng = event.venue.lng
     let listingHeadlineClasses = classNames({
       "listing-headline": true,
-      "row": true,
-      "hidden": this.state.open
+      "row": true
     })
     return (
       <div className="row listing" onClick={() => this.toggleOpen()}>
