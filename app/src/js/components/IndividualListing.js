@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { capitalize, uniqueId } from '../util/utilities'
 import moment from 'moment'
 import classNames from 'classnames'
-import { fetchVenueInfoIfNeeded, fetchArtistInfoIfNeeded } from '../actions/actions'
+import { fetchVenueInfoIfNeeded, fetchArtistInfoIfNeeded } from '../actions/VenueInfoActions'
 import IndividualListingInfo from './IndividualListingInfo'
 
 class IndividualListing extends Component {

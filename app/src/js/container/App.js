@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchListingsIfNeeded, setVenueFilter, setDateFilter } from '../actions/actions'
+import { fetchListingsIfNeeded } from '../actions/ListingsActions'
+import { setVenueFilter, setDateFilter } from '../actions/ListingsFilterActions'
 import EventListings from '../components/EventListings'
 import EventFilter from '../components/EventFilter'
 

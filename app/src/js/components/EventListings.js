@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import IndividualListing from './IndividualListing'
-import { fetchVenueInfoIfNeeded } from '../actions/actions'
+import { fetchVenueInfoIfNeeded } from '../actions/VenueInfoActions'
 import { uniqueId } from '../util/utilities'
 
 
