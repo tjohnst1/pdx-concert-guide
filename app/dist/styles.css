@@ -188,9 +188,9 @@ body {
   margin: 0;
 }
 
-/* line 87, ../src/scss/_listings.scss */
-.closed-row {
-  max-height: 0px;
+/* line 86, ../src/scss/_listings.scss */
+.closed {
+  display: none;
 }
 
 /* line 2, ../src/scss/_filter.scss */

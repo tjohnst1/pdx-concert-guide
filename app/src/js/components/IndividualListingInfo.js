@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import moment from 'moment'
-import { capitalize } from '../util/utilities'
+import { capitalize, uniqueId } from '../util/utilities'
 import classNames from 'classnames'
 import Map from './Map'
 
 export default class IndividualListingInfo extends Component {
   render(){
-    const {lat, lng, event, venueInfo, artistInfo, open} = this.props
+    const {lat, lng, event, venueInfo, artistInfo, open, openId} = this.props
     const date = moment(event.start.date).format("ddd Do")
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
-    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres">{genre}</p>) : null
+    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres" key={uniqueId()}>{genre}</p>) : null
     let listingInfoClasses = classNames({
       "listing-info": true,
       "open": open,

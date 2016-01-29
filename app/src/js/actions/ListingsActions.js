@@ -29,18 +29,3 @@ function recieveListings(json){
     listings: json.resultsPage.results.event
   }
 }
-
-export function setVenueFilter(venue){
-  return {
-    type: SELECT_VENUE,
-    venue: venue
-  }
-}
-
-export function setDateFilter(dateObj){
-  return {
-    type: SELECT_DATE,
-    startDate: dateObj.startDate,
-    endDate: dateObj.endDate
-  }
-}
