@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { SELECT_VENUE, SELECT_DATE, REQUEST_VENUE_INFO, RECEIVE_VENUE_INFO,
-         REQUEST_ARTIST_INFO, RECEIVE_ARTIST_INFO } from '../constants/constants'
+         REQUEST_ARTIST_INFO, RECEIVE_ARTIST_INFO, CLOSE_ALL } from '../constants/constants'
 
 export function fetchVenueInfoIfNeeded(infoObj) {
   return (dispatch) => {
@@ -69,5 +69,11 @@ function fetchArtistInfo(artistName){
     return fetch(url)
       .then((response) => response.json())
       .then((json) => dispatch(recieveArtistInfo(json)))
+  }
+}
+
+export function closeAll(){
+  return {
+    type: CLOSE_ALL
   }
 }

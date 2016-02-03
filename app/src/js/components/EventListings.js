@@ -11,7 +11,6 @@ class EventListings extends Component {
         <IndividualListing event={event} key={event.id}/>
       )
     })
-    console.log("listings:", this.props.listings)
     return (
       <div className="listings-container">
         {this.props.isFetching ? <p>Loading...</p> : null}

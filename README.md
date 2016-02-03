@@ -1,6 +1,5 @@
 # React/Flux To-Do
-
-An application that displays upcoming concerts in the PDX metro area.
+An application that displays upcoming concerts in the PDX metro area. (Please note: this is still a work in progress.)
 
 ## Technologies Used
 React, Javascript (ES6), HTML5, CSS3, Webpack, Grunt

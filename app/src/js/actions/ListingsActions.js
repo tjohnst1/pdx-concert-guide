@@ -13,7 +13,7 @@ function fetchListings(){
     dispatch(requestListings())
     return fetch(url)
       .then((response) => response.json())
-      .then((json) => dispatch(recieveListings(json)))
+      .then((eventArr) => dispatch(recieveListings(eventArr.resultsPage.results.event)))
   }
 }
 
@@ -23,9 +23,9 @@ function requestListings(){
   }
 }
 
-function recieveListings(json){
+function recieveListings(eventArr){
   return {
     type: RECEIVE_LISTINGS,
-    listings: json.resultsPage.results.event
+    listings: eventArr
   }
 }
