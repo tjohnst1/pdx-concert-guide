@@ -9,14 +9,33 @@ export function fetchListingsIfNeeded() {
   }
 }
 
+export function getEvents(){
+  const url = "http://api.songkick.com/api/3.0/metro_areas/12283/calendar.json?apikey=ewhKf5A1zoFbcx0A"
+  let events = fetch(url).then((response) => response.json()).then((json) => json.resultsPage.results.events)
+  console.log(events)
+}
+
 function fetchListings(){
   const url = "http://api.songkick.com/api/3.0/metro_areas/12283/calendar.json?apikey=ewhKf5A1zoFbcx0A"
-  return (dispatch) => {
-    dispatch(requestListings())
-    return fetch(url)
-      .then((response) => response.json())
-      .then((json) => dispatch(recieveListings(json)))
-  }
+  var eventsPromise = fetch(url).then((response) => response.json()).then((json) => json.resultsPage.results.event)
+  return eventsPromise
+  // var addAddressPromise = eventsPromise.then((events) => {
+  //   console.log('events: ', events);
+  //   var promiseArr = [];
+  //   for (var event of events){
+  //     const lat = event.location.lat
+  //     const lng = event.location.lng
+  //     promiseArr.push(getVenueInfo(lat, lng))
+  //   }
+  //   Promise.all(promiseArr).then((addresses) => events.map((listing, index, array) => listing.address = addresses[i]))
+  // })
+  // return Promise.all([eventsPromise, addAddressPromise]).then((results) => console.log(results))
+}
+
+function getVenueInfo(lat, lng){
+  const url = `http://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`
+  return fetch(url)
+    .then((response) => response.json())
 }
 
 function requestListings(){
@@ -28,7 +47,7 @@ function requestListings(){
 function recieveListings(json){
   return {
     type: RECEIVE_LISTINGS,
-    listings: json.resultsPage.results.event
+    listings: json
   }
 }
 

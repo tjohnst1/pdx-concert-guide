@@ -48,15 +48,13 @@ export const filteredListings = createSelector(
   selectedVenueSelector,
   selectedDateSelector,
   isFetchingSelector,
-  venueSelector,
   filteredByVenue,
-  (listings, selectedVenue, selectedDate, isFetching, venues, filteredByVenue) => {
+  (listings, selectedVenue, selectedDate, isFetching, filteredByVenue) => {
     return {
       listings,
       selectedVenue,
       selectedDate,
       isFetching,
-      venues,
       filteredListings: eventsByDate(filteredByVenue, selectedDate)
     }
   }

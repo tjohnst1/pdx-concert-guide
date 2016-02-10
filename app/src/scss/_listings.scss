@@ -9,7 +9,7 @@
   margin: 0;
   padding: 10px;
   position: relative;
-  transition: 0.3s;
+  transition: all 1s;
   &:first-of-type{
     border-top: 2px solid $border;
   }
@@ -47,15 +47,12 @@
 
 .listing-info{
   @include span-columns(12);
-  max-height: 0;
   overflow: hidden;
   display: block;
-  transition: 0.3s;
+  @include transition(all 1s .5s);
   opacity: 0.5;
   &.open{
     opacity: 1;
-    max-height: 300px;
-    transition: 0.3s;
   }
 }
 

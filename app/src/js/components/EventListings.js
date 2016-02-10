@@ -16,8 +16,9 @@ class EventListings extends Component {
   }
   render(){
     let eventList = this.props.listings.map((event) => {
+    const id = uniqueId()
       return (
-        <IndividualListing event={event} eventId={event.id} key={event.id} setOpenId={(id) => this.setOpenId(id)} openId={this.state.openId}/>
+        <IndividualListing event={event} eventId={id} key={id} setOpenId={(id) => this.setOpenId(id)} openId={this.state.openId}/>
       )
     })
     return (

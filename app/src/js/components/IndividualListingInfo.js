@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import moment from 'moment'
-import { capitalize } from '../util/utilities'
+import { uniqueId, capitalize } from '../util/utilities'
 import classNames from 'classnames'
 import Map from './Map'
 
@@ -10,7 +10,7 @@ export default class IndividualListingInfo extends Component {
     const date = moment(event.start.date).format("ddd Do")
     const artists = event.performance.map((artist) => capitalize(artist.displayName)).join(", ")
     const venue = event.venue.displayName
-    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres">{genre}</p>) : null
+    const genres = (artistInfo.genres !== undefined) ? artistInfo.genres.map((genre) => <p className="listing-genres" key={uniqueId()}>{genre}</p>) : null
     let listingInfoClasses = classNames({
       "listing-info": true,
       "open": open,
@@ -29,6 +29,7 @@ export default class IndividualListingInfo extends Component {
             <img src={artistInfo.imageUrl} />
             <p>Spotify: {artistInfo.spotifyUrl}</p>
         </div>
+
         <div className="venue-info-container">
           <p className="listing-venue">{venue}</p>
           <div>

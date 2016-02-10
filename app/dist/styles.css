@@ -46,7 +46,7 @@ body {
   margin: 0;
   padding: 10px;
   position: relative;
-  transition: 0.3s;
+  transition: all 1s;
 }
 /* line 89, ../src/scss/neat/grid/_span-columns.scss */
 .listing:last-child {
@@ -127,24 +127,23 @@ body {
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  max-height: 0;
   overflow: hidden;
   display: block;
-  transition: 0.3s;
+  -webkit-transition: all 1s 0.5s;
+  -moz-transition: all 1s 0.5s;
+  transition: all 1s 0.5s;
   opacity: 0.5;
 }
 /* line 89, ../src/scss/neat/grid/_span-columns.scss */
 .listing-info:last-child {
   margin-right: 0;
 }
-/* line 55, ../src/scss/_listings.scss */
+/* line 54, ../src/scss/_listings.scss */
 .listing-info.open {
   opacity: 1;
-  max-height: 300px;
-  transition: 0.3s;
 }
 
-/* line 62, ../src/scss/_listings.scss */
+/* line 59, ../src/scss/_listings.scss */
 .artist-info-container {
   float: left;
   display: block;
@@ -155,22 +154,22 @@ body {
 .artist-info-container:last-child {
   margin-right: 0;
 }
-/* line 64, ../src/scss/_listings.scss */
+/* line 61, ../src/scss/_listings.scss */
 .artist-info-container .listing-date {
   margin: 0;
   color: #CF000F;
 }
-/* line 68, ../src/scss/_listings.scss */
+/* line 65, ../src/scss/_listings.scss */
 .artist-info-container .listing-artists {
   margin: 0;
   font-weight: 700;
 }
-/* line 72, ../src/scss/_listings.scss */
+/* line 69, ../src/scss/_listings.scss */
 .artist-info-container .listing-genres {
   color: #505E63;
 }
 
-/* line 77, ../src/scss/_listings.scss */
+/* line 74, ../src/scss/_listings.scss */
 .venue-info-container {
   float: left;
   display: block;
@@ -183,12 +182,12 @@ body {
 .venue-info-container:last-child {
   margin-right: 0;
 }
-/* line 81, ../src/scss/_listings.scss */
+/* line 78, ../src/scss/_listings.scss */
 .venue-info-container .listing-venue {
   margin: 0;
 }
 
-/* line 87, ../src/scss/_listings.scss */
+/* line 84, ../src/scss/_listings.scss */
 .closed-row {
   max-height: 0px;
 }
