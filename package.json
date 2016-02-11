@@ -13,6 +13,7 @@
     "url": "https://github.com/tjohnst1/pdx-concert-guide.git"
   },
   "dependencies": {
+    "bluebird": "^3.1.5",
     "classnames": "^2.2.3",
     "firebase": "^2.4.0",
     "flux": "^2.1.1",

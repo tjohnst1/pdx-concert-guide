@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchListingsIfNeeded, setVenueFilter, setDateFilter, getEvents } from '../actions/actions'
+import { fetchListingsIfNeeded } from '../actions/ListingsActions'
+import { setVenueFilter, setDateFilter } from '../actions/ListingsFilterActions'
 import EventListings from '../components/EventListings'
 import EventFilter from '../components/EventFilter'
 
@@ -17,6 +18,10 @@ export default class App extends Component {
     this.pr
     return (
       <div>
+        <h1 className="logo">PDX Concert Listings</h1>
+          <EventFilter venues={venues} setVenueFilter={(venue) => dispatch(setVenueFilter(venue))}
+           setDateFilter={(date, type) => dispatch(setDateFilter(date, type))} />
+          <EventListings listings={filteredListings} isFetching={isFetching} />
       </div>
     )
   }

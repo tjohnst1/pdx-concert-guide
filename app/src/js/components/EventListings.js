@@ -1,24 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import IndividualListing from './IndividualListing'
-import { fetchVenueInfoIfNeeded } from '../actions/actions'
+import { fetchVenueInfoIfNeeded } from '../actions/VenueInfoActions'
 import { uniqueId } from '../util/utilities'
 
 
 class EventListings extends Component {
-  constructor(){
-    super()
-    this.state = {
-      openId: false
-    }
-  }
-  setOpenId(id){
-    this.setState({ openId: id })
-  }
   render(){
     let eventList = this.props.listings.map((event) => {
     const id = uniqueId()
       return (
-        <IndividualListing event={event} eventId={id} key={id} setOpenId={(id) => this.setOpenId(id)} openId={this.state.openId}/>
+        <IndividualListing event={event} key={event.id}/>
       )
     })
     return (

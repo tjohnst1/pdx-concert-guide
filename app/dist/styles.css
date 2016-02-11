@@ -190,7 +190,6 @@ body {
 /* line 84, ../src/scss/_listings.scss */
 .closed-row {
   max-height: 0px;
-}
 
 /* line 2, ../src/scss/_filter.scss */
 .filter input[type="date"] {
